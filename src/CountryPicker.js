@@ -125,9 +125,9 @@ export default class CountryPicker extends Component {
     )
   }
 
-  static renderFlagWithName(cca2,countryName, itemStyle, emojiStyle, imageStyle) {
+  static renderFlagWithName(cca2,countryName, itemStyle, emojiStyle, imageStyle, props) {
     return (
-      <View style={{flexDirection:'row', flexWrap:'wrap',alignItems: "center",}}>
+      <View style={{flexDirection:'row', flexWrap:'wrap',alignItems: "center", ...props.containerStyle}}>
         <View style={[countryPickerStyles.itemCountryFlag, itemStyle]}>
           {isEmojiable
             ? CountryPicker.renderEmojiFlag(cca2, emojiStyle)
@@ -398,7 +398,7 @@ export default class CountryPicker extends Component {
               {this.props.showCountryNameWithFlag && CountryPicker.renderFlagWithName(this.props.cca2,this.getCountryName(countries[this.props.cca2]),
                 styles.itemCountryFlag,
                 styles.emojiFlag,
-                styles.imgStyle)}
+                styles.imgStyle, this.props)}
 
               {!this.props.showCountryNameWithFlag && CountryPicker.renderFlag(this.props.cca2,
                 styles.itemCountryFlag,
