@@ -429,6 +429,7 @@ export default class CountryPicker extends Component {
                 <FlatList
                   data={this.state.flatListMap}
                   ref={flatList => (this._flatList = flatList)}
+		              onScrollToIndexFailed={() =>{}}
                   initialNumToRender={30}
                   renderItem={country => this.renderCountry(country.item.key)}
                   keyExtractor={(item) => item.key}
